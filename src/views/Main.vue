@@ -16,7 +16,7 @@ export default {
 
   created () {
     this.$http
-      .get('http://localhost:8072/myservice/md/getMD')
+      .get('http://localhost:8072/myservice/md/getMD/1')
       .then((res) => {
         this.context = res.data.data
       })
@@ -31,17 +31,24 @@ export default {
     handleCommand (command) {
       if (command === 'cn') {
         this.$http
-          .get('https://www.taiyipei.cn/myservice/md/getMD')
+          .get('https://www.taiyipei.cn/myservice/md/getMD/1')
           .then((res) => {
             this.context = res.data.data
           })
       } else {
         this.$http
-          .get('https://www.taiyipei.cn/myservice/md/getEnMD')
+          .get('https://www.taiyipei.cn/myservice/md/getEnMD/1')
           .then((res) => {
             this.context = res.data.data
           })
       }
+    },
+    handleCommandDesc (id) {
+      this.$http
+        .get('https://www.taiyipei.cn/myservice/md/getMD/' + id)
+        .then((res) => {
+          this.context = res.data.data
+        })
     }
   }
 }

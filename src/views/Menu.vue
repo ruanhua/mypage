@@ -1,6 +1,6 @@
 <template>
     <el-menu v-for="(item,index) in menuItem" :key="index">
-          <el-menu-item :index="index">{{item.menuName}}</el-menu-item>
+          <el-menu-item :index="index" @click="getMenuId(item.menuId)">{{item.menuName}}</el-menu-item>
     </el-menu>
 </template>
 <script>
@@ -10,14 +10,14 @@ export default {
   data () {
     return {
       cnMenuItem: [
-        { menuName: 'MD基本操作' },
-        { menuName: '菜单二' },
-        { menuName: '菜单三' }
+        { menuId: 1, menuName: 'MD基本操作' },
+        { menuId: 2, menuName: '数组为啥从0开始' },
+        { menuId: 3, menuName: '菜单三' }
       ],
       enMenuItem: [
-        { menuName: 'MD base operation' },
-        { menuName: 'MenuTwo' },
-        { menuName: 'MenuThree' }
+        { menuId: 4, menuName: 'MD base operation' },
+        { menuId: 5, menuName: 'Why array start zero' },
+        { menuId: 6, menuName: 'MenuThree' }
       ],
       menuItem: []
     }
@@ -34,6 +34,11 @@ export default {
       } else {
         this.menuItem = this.enMenuItem
       }
+    },
+    getMenuId (id) {
+      // eslint-disable-next-line no-debugger
+      debugger
+      this.$emit('showContent', id)
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="toolbar">
-        <el-dropdown trigger="click" @command="handleCommand">
+        <el-dropdown trigger="click" @command="changeCommand">
             <span class="el-dropdown-link">
                 语言/Language
                 <el-icon class="el-icon--right">
@@ -21,7 +21,7 @@
 export default {
   name: 'Head',
   methods: {
-    handleCommand (command) {
+    changeCommand (command) {
       this.$emit('handleCommand', command)
     }
   }

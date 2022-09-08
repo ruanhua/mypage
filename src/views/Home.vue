@@ -6,7 +6,7 @@
     <el-container>
 
     <el-aside width="200px">
-          <Menu ref="menu"/>
+          <Menu ref="menu" @showContent="showContent" />
     </el-aside>
 
     <el-container>
@@ -41,6 +41,9 @@ export default {
     handleCommand (command) {
       this.$refs.menu.handleCommand(command)
       this.$refs.main.handleCommand(command)
+    },
+    showContent (id) {
+      this.$refs.main.handleCommandDesc(id)
     }
   }
 
